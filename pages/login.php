@@ -13,16 +13,22 @@ session_start();
     if(isset($_POST['login'])){
     $username = $_POST['loginEmail'];
 	$password = $_POST['loginPassword'];
-    echo $username;
+
+    $username = stripcslashes($username);
+    $password = stripcslashes($password);
+    $username = mysqli_real_escape_string($con,$username);
+    $password = mysqli_real_escape_string($con,$password);
 
 	$q = "select * from user where email = '$username' && password = '$password'";
-	echo $username;
-	$result = mysqli_query($con, $q);
-	$num = mysqli_num_rows($result);
+	// echo $username;
+    $result = mysqli_query($con, $q);
+    
+    $num = mysqli_num_rows($result);
+    //echo "helllo";
 	if($num == 1){
 		//;header("location: http://localhost/ip/login.php"); //redirect
     echo "<script> alert('login succesfully!')</script> ";	
-    echo "<script> window.location.assign('index.html')</script>";	
+    echo "<script> window.location.assign('index.php')</script>";	
 	}
 	else{
 		echo "<script> alert('invalid login')</script>";
