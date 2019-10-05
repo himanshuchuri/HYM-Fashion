@@ -1,0 +1,52 @@
+.bill {
+    margin-left: 4%;
+    border: 0.4px solid #000000;
+    border-radius: 20px;
+}
+
+.details {
+    border: 0.4px solid #000000;
+    border-radius: 20px;
+}
+
+.product {
+    border-radius: 20px;
+}
+
+.cart-details {
+    margin-left: 3%;
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+body {
+    background: #fffdf5;
+}
+
+nav,
+footer {
+    background: linear-gradient(0deg, rgba(225, 151, 231, 0.2), rgba(241, 181, 247, 0.2)), #FFFFFF;
+}
+
+.nav-link {
+    color: #002366 !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+footer {
+    background: #FAECFB
+}
+
+.list-unstyled a,
+.footer-copyright a {
+    color: #002366 !important;
+    text-decoration: none;
+}
+
+footer a{
+    font-weight: bold;
+}

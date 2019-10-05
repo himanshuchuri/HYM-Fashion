@@ -1,0 +1,24 @@
+.primary_button{
+    border-radius: 25px;
+  color: white;
+    background:#5E19FE;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-right: 55px;
+    padding-left:55px;  
+    float: right;
+    border-width: 0px;
+  }
+  
+  .primary_button_small{
+    border-radius: 25px;
+  color: white;
+    background:#5E19FE;
+    padding-bottom: 5px;
+    padding-top:5px;
+    padding-right: 35px;
+    padding-left:35px;  
+    float: right;
+    border-width: 0px;
+  }
+  

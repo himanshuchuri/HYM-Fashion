@@ -1,0 +1,41 @@
+.col-md-3 {
+   
+}
+
+.col-md-9 {
+    background-color:  #FFFDF5;
+}
+
+.caption {
+    margin-left: 10%;
+    color: #524D4D;
+}
+
+.product_name,
+.price {
+    margin-left: 10%;
+    font-weight: bold;
+}
+.nav-link {
+    color: #002366 !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+body{
+    background: #FAECFB;
+}
+footer {
+    background: #FAECFB
+}
+
+.list-unstyled a,
+.footer-copyright a {
+    color: #002366 !important;
+    text-decoration: none;
+}
+
+footer a{
+    font-weight: bold;
+}

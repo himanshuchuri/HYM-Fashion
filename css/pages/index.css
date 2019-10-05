@@ -1,0 +1,88 @@
+    body {
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        background:#FAECFB;
+    }
+    
+    .nav-link {
+        color: #002366 !important;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+    /* Create four equal columns that sits next to each other */
+    
+    .column {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+    }
+    
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+    }
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    
+    @media screen and (max-width: 800px) {
+        .column {
+            -ms-flex: 25%;
+            flex: 25%;
+            max-width: 25%;
+        }
+    }
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 600px) {
+        .column {
+            -ms-flex: 25%;
+            flex: 25%;
+            max-width: 25%;
+        }
+    }
+    
+    .column img:hover {
+        /* filter: brightness(0%) !important; */
+        filter: saturate(200%) !important;
+        box-shadow: 0 0 1115px -2px #9b9b9b;
+    }
+    
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    @media screen and (max-width:767px) {
+        .ml-1 {
+            margin-left: 60.25% !important;
+        }
+    }
+    
+    footer {
+        background: #FAECFB
+    }
+    
+    .list-unstyled a,
+    .footer-copyright a {
+        color: #002366 !important;
+        text-decoration: none;
+    }
