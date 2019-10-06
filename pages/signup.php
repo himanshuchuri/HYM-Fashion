@@ -41,8 +41,10 @@ if(isset($_POST['create'])){
 	<div class="container-fluid d1">
 		<div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-12">
+			
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 div1">
+			
 				<h1 class="heading1"></h1><img src="../assets/logo.png" width="150px"></h1>
 				<br>
 				<br>
@@ -77,10 +79,15 @@ if(isset($_POST['create'])){
 					<div class="form-group" id="buttns">
 						<button type="button" name="cancel" class="btn btn-default btn-cancel btn-outline-dark"><a class="can" href="signup.html">Cancel</a></button>
 						<a herf="login.html"><button type="submit" id="create" class="btn btn-success btn-su"  name="create">Submit</button></a>
+						
 					</div>
 				</form>
 			</div>
-			<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="col-md-3 col-sm-3 col-xs-11">
+				<br>
+				<!-- <br> -->
+				<center>
+			<a href="login.php"><button type="button" class="btn btn-light" >Log In Instead</button></a></center>
 			</div>
 		</div>
 	</div>
