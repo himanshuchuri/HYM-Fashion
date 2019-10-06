@@ -1,9 +1,9 @@
 <?php 
 $username = "root";
 $password = "";
-$dbname = "test";
+$dbname = "try_db";
 
-$con = mysqli_connect('localhost:3306', $username, $password, $dbname) or die("Unable to connect");
+$con = mysqli_connect('localhost:3307', $username, $password, $dbname) or die("Unable to connect");
 if($con->connect_error) {
   exit('Could not connect');
 }
@@ -17,7 +17,7 @@ if(isset($_POST['create'])){
 	echo $cpass = $_POST['cnfpassword'];
 //onclick="validate()"
 	if($pass == $cpass){
-	$query= "insert into user values ('$fnm','$lnm','$phone','$email','$address','$pass'); ";
+	$query= "insert into users values ('$fnm','$lnm','$phone','$email','$address','$pass'); ";
 	mysqli_query($con,$query);
 	echo "<script> window.location.assign('login.html')</script>";
 	}

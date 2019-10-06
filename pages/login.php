@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$con = mysqli_connect('localhost:3306','root');
+	$con = mysqli_connect('localhost:3307','root','');
 	
 	/*if($con){
 		echo "Connection sucesfull";
@@ -9,20 +9,20 @@ session_start();
 		echo "Not connected";
 	}
 	*/
-    mysqli_select_db($con, 'test');
+    mysqli_select_db($con, 'try_db');
     if(isset($_POST['login'])){
     $username = $_POST['loginEmail'];
 	$password = $_POST['loginPassword'];
     echo $username;
 
-	$q = "select * from user where email = '$username' && password = '$password'";
+	$q = "select * from users where email_id = '$username' && password = '$password'";
 	echo $username;
 	$result = mysqli_query($con, $q);
 	$num = mysqli_num_rows($result);
 	if($num == 1){
 		//;header("location: http://localhost/ip/login.php"); //redirect
     echo "<script> alert('login succesfully!')</script> ";	
-    echo "<script> window.location.assign('index.html')</script>";	
+    echo "<script> window.location.assign('index.php')</script>";	
 	}
 	else{
 		echo "<script> alert('invalid login')</script>";
