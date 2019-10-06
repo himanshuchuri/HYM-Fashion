@@ -6,10 +6,10 @@ session_start();
 $username = "";
 $email    = "";
 $errors = array(); 
-$servername = "localhost:3307";
+$servername = "localhost:3306";
 $username = "root";
 $password = "";
-$dbname = "try_db";
+$dbname = "test";
 
 // connect to the database
 $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +17,7 @@ $mysqli = new mysqli($servername, $username, $password, $dbname);
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
-
+/*
 $sql = "select first_name, last_name, email_id, password FROM users";
 
 $stmt = $mysqli->prepare($sql);
@@ -26,6 +26,6 @@ $stmt->store_result();
 $stmt->bind_result($cid, $cname, $name, $adr);
 $stmt->fetch();
 $stmt->close();
-
+*/
 
 ?> 

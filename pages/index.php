@@ -50,17 +50,18 @@
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item ">
-                    <a class="nav-link" href="mens.html">Men<span class="sr-only"></span></a>
+                    <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Women</a>
+                    <a class="nav-link" href="women.php
+                    ">Women</a>
                 </li>
                 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Wishlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signup.html">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
+                    <a class="nav-link" href="signup.php">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>

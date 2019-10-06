@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-	$con = mysqli_connect('localhost:3307','root','');
+	$con = mysqli_connect('localhost:3306','root','');
 	
 	/*if($con){
 		echo "Connection sucesfull";
@@ -9,13 +9,13 @@ session_start();
 		echo "Not connected";
 	}
 	*/
-    mysqli_select_db($con, 'try_db');
+    mysqli_select_db($con, 'test');
     if(isset($_POST['login'])){
     $username = $_POST['loginEmail'];
 	$password = $_POST['loginPassword'];
     echo $username;
 
-	$q = "select * from users where email_id = '$username' && password = '$password'";
+	$q = "select * from user where email = '$username' && password = '$password'";
 	echo $username;
 	$result = mysqli_query($con, $q);
 	$num = mysqli_num_rows($result);

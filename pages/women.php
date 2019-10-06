@@ -1,0 +1,268 @@
+<?php
+
+    session_start();
+	$con = mysqli_connect('localhost:3306','root','','test');
+?>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/pages/mens.css">
+    <title>Womens</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+            <nav class="navbar navbar-light navbar-expand-md  justify-content-center">
+                    <a href="/" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
+                    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                        <ul class="navbar-nav mx-auto text-center">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="women.php">Women</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Wishlist</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="signup.php">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+                            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
+                            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
+                        </ul>
+                    </div>
+                </nav>
+        <div class="row">
+            <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
+                <br>
+                <br> FILTERS GO HERE
+            </div>
+            <div class="col-md-9">
+                <div class="container">
+                    <br>
+                    <br>
+                    <center>
+                        <h5>WOMENS'S CLOTHING</h5>
+                    </center>
+                    <br>
+                    <div class="row">
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                          <?php
+                          global $con; 
+                          
+                          $get_pro = "select * from product_men order by p_id";
+                          $run_pro = mysqli_query($con, $get_pro);
+                          while($row_pro = mysqli_fetch_array($run_pro)){
+                            $pro_img = $row_pro['p_image'];
+                            echo "<center><img src='../assets/$pro_img' ></center>";} ?>
+                          
+
+                          
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/2.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/3.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/4.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/5.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/6.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+
+
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/7.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/8.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <center><img src="../assets/images/9.png" alt="img1" style="width: 80%;"></center>
+                            <font class="caption"> Company Name </font>
+                            <br>
+                            <font class="product_name">Product name</font>
+                            <br>
+                            <font class="price">₹799</font>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+
+            <!-- Footer Links -->
+            <div class="container-fluid text-center text-md-left">
+    
+                <!-- Grid row -->
+                <div class="row">
+    
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3">
+    
+                        <!-- Content -->
+    
+                        <p><img src="../assets/logo.svg" alt="HYM"></p>
+    
+                    </div>
+                    <!-- Grid column -->
+    
+                    <hr class="clearfix w-100 d-md-none pb-3">
+    
+                    <!-- Grid column -->
+                    <div class="col-md-3 mb-md-0 mb-3">
+    
+                        <!-- Links -->
+    
+    
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Men</a>
+                            </li>
+                            <li>
+                                <a href="#!">Women</a>
+                            </li>
+                            <li>
+                                <a href="#!">Kids</a>
+                            </li>
+    
+                        </ul>
+    
+                    </div>
+                    <!-- Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-3 mb-md-0 mb-3">
+    
+                        <!-- Links -->
+    
+    
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Wishlist</a>
+                            </li>
+                            <li>
+                                <a href="#!">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="#!">My shopping Cart</a>
+                            </li>
+    
+                        </ul>
+    
+                    </div>
+                    <!-- Grid column -->
+    
+                </div>
+                <!-- Grid row -->
+    
+            </div>
+            <!-- Footer Links -->
+    
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3" style="font-size: 14px;">© 2019 Copyright:
+                <a href="https://mdbootstrap.com/education/bootstrap/"> hym.com</a>
+            </div>
+            <!-- Copyright -->
+    
+        </footer>
+        <!-- Footer -->
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
