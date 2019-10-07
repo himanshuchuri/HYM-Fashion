@@ -64,8 +64,51 @@
                     <center>
                         <h5>WOMENS'S CLOTHING</h5>
                     </center>
-                    <br>
-                    <div class="row">
+                    <br> 
+                    <div class='row'>
+                    <?php
+                    if(!isset($_GET['product_women'])){
+		                
+
+	                    global $con;
+
+	                    $get_pro = "select * from product_women";
+	                    $run_pro = mysqli_query($con, $get_pro);
+
+	                    while($row_pro=mysqli_fetch_array($run_pro)){
+
+		                $pro_id = $row_pro['p_id'];
+		                $pro_title = $row_pro['p_title'];
+		                $pro_price = $row_pro['p_price'];
+		                $pro_image = $row_pro['p_image'];
+
+                        echo "
+                        
+                        <div class='col-md-4 col-sm-4 col-xs-4'>
+        
+                         <h3>$pro_title</h3>
+                         <p><img src='../assets/$pro_image' width='200' height='200'/></p>
+                         <p><b>PRICE: INR $pro_price</b></p>
+                         <a href='#'><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D); width:80px; height:30px;
+                            width=50px;
+                            padding: 0px;
+                            '>+Cart</button></a>
+                         </div>
+                         <br>
+                         <br>
+
+
+                        
+                        ";
+  
+                        }
+                        }		    
+                        ?>
+                         </div>
+                    <!-- div class="row">
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
@@ -127,7 +170,9 @@
                         </div>
 
 
-                    </div>
+                    </div -->
+
+
                     <br>
                     <br>
                     
