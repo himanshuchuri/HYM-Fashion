@@ -69,16 +69,7 @@
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                          <?php
-                          global $con; 
-                          
-                          $get_pro = "select * from product_men order by p_id";
-                          $run_pro = mysqli_query($con, $get_pro);
-                          while($row_pro = mysqli_fetch_array($run_pro)){
-                            $pro_img = $row_pro['p_image'];
-                            echo "<center><img src='../assets/$pro_img' ></center>";} ?>
-                          
-
+                        <center><img src='../assets/DOD_1.jpg' ></center>
                           
                             <font class="caption"> Company Name </font>
                             <br>
@@ -87,7 +78,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/2.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/DOD_3.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -95,7 +86,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/3.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/DOD_8.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -111,7 +102,7 @@
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/4.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/DOD_9.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -119,7 +110,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/5.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/WN_1.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -127,7 +118,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/6.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/WN_9.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -139,36 +130,7 @@
                     </div>
                     <br>
                     <br>
-                    <div class="row">
-
-
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/7.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/8.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/9.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-
-
-                    </div>
+                    
                     <br>
                     <br>
 
