@@ -27,7 +27,7 @@
                     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
                         <ul class="navbar-nav mx-auto text-center">
                             <li class="nav-item ">
-                                <a class="nav-link" href="mens.html">Men<span class="sr-only"></span></a>
+                                <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="women.php">Women</a>
@@ -55,7 +55,24 @@
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
-                <br> FILTERS GO HERE
+                <br> 
+                <center><img src="../assets/versace.png" alt="img1" style="width: 80%;"></center>
+                <br>
+                <center><img src="../assets/zara.png" alt="img1" style="width: 80%;"></center>
+                <br>
+
+                <center><img src="../assets/tommy.png" alt="img1" style="width: 80%;"></center>
+                <br>
+
+                <center><img src="../assets/levis.png" alt="img1" style="width: 80%;"></center>
+                <br>
+
+                <center><img src="../assets/Gucci.png" alt="img1" style="width: 80%;"></center>
+                <br>
+                
+                
+                <center><img src="../assets/allen_solly.png" alt="img1" style="width: 80%;"></center>
+
             </div>
             <div class="col-md-9">
                 <div class="container">
@@ -69,7 +86,7 @@
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/1.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_1.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -77,7 +94,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/2.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_2.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -85,7 +102,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/3.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_3.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -101,7 +118,7 @@
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/4.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_4.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -109,7 +126,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/5.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_5.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -117,7 +134,7 @@
                             <font class="price">₹799</font>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/6.png" alt="img1" style="width: 80%;"></center>
+                            <center><img src="../assets/MP_6.jpg" alt="img1" style="width: 80%;"></center>
                             <font class="caption"> Company Name </font>
                             <br>
                             <font class="product_name">Product name</font>
@@ -126,39 +143,7 @@
                         </div>
 
 
-                    </div>
-                    <br>
-                    <br>
-                    <div class="row">
-
-
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/7.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/8.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/images/9.png" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-
-
-                    </div>
+                    
                     <br>
                     <br>
 
