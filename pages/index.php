@@ -43,7 +43,7 @@
         </ul>
     </nav> -->
     <nav class="navbar navbar-light navbar-expand-md  justify-content-center">
-        <a href="/" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
+        <a href="index.php" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -61,7 +61,7 @@
                     <a class="nav-link" href="#">Wishlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
+                    <a class="nav-link" href="signup.php">Sign Out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>

@@ -1,7 +1,7 @@
 <?php
 
-    session_start();
-	$con = mysqli_connect('localhost:3306','root','','test');
+session_start();
+$con = mysqli_connect('localhost:3306', 'root', '', 'test');
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,46 +19,47 @@
 
 <body>
     <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-md  justify-content-center">
-                    <a href="/" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
-                    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
-                        <ul class="navbar-nav mx-auto text-center">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="women.php">Women</a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Wishlist</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="signup.php">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
-                            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
-                            <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
-                        </ul>
-                    </div>
-                </nav>
+        <nav class="navbar navbar-light navbar-expand-md  justify-content-center">
+            <a href="index.php" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
+            <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="women.php">Women</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="signup.php">Sign Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
+                    <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
+                </ul>
+            </div>
+        </nav>
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
 
                 <center>
-                <h3><b>Our Product Suppliers</b></h3></center>
-                <br> 
+                    <h3><b>Our Product Suppliers</b></h3>
+                </center>
+                <br>
                 <center><img src="../assets/versace.png" alt="img1" style="width: 50%;"></center>
                 <br>
                 <br>
@@ -77,8 +78,8 @@
                 <center><img src="../assets/Gucci.png" alt="img1" style="width: 50%;"></center>
                 <br>
                 <br>
-                
-                
+
+
                 <center><img src="../assets/allen_solly.png" alt="img1" style="width: 50%;"></center>
                 <br>
                 <br>
@@ -94,26 +95,26 @@
                     <center>
                         <h5>WOMENS'S CLOTHING</h5>
                     </center>
-                    <br> 
-                    <div class="row"> 
-  <div class="column">
-  <?php
-                    if(!isset($_GET['product_women'])){
-		                
+                    <br>
+                    <div class="row">
+                        <div class="column">
+                            <?php
+                            if (!isset($_GET['product_women'])) {
 
-	                    global $con;
 
-	                    $get_pro = "select * from product_women";
-	                    $run_pro = mysqli_query($con, $get_pro);
+                                global $con;
 
-	                    while($row_pro=mysqli_fetch_array($run_pro)){
+                                $get_pro = "select * from product_women where p_id between 1 and 2";
+                                $run_pro = mysqli_query($con, $get_pro);
 
-		                $pro_id = $row_pro['p_id'];
-		                $pro_title = $row_pro['p_title'];
-		                $pro_price = $row_pro['p_price'];
-		                $pro_image = $row_pro['p_image'];
+                                while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-                        echo "
+                                    $pro_id = $row_pro['p_id'];
+                                    $pro_title = $row_pro['p_title'];
+                                    $pro_price = $row_pro['p_price'];
+                                    $pro_image = $row_pro['p_image'];
+
+                                    echo "
                         
                         <div class='col-md-4 col-sm-4 col-xs-4'>
         
@@ -136,29 +137,28 @@
 
                         
                         ";
-  
-                        }
-                        }		    
-                        ?>
-  </div>
-  <div class="column">
-  <?php
-                    if(!isset($_GET['product_women'])){
-		                
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="column">
+                            <?php
+                            if (!isset($_GET['product_women'])) {
 
-	                    global $con;
 
-	                    $get_pro = "select * from product_women";
-	                    $run_pro = mysqli_query($con, $get_pro);
+                                global $con;
 
-	                    while($row_pro=mysqli_fetch_array($run_pro)){
+                                $get_pro = "select * from product_women where p_id between 3 and 4";
+                                $run_pro = mysqli_query($con, $get_pro);
 
-		                $pro_id = $row_pro['p_id'];
-		                $pro_title = $row_pro['p_title'];
-		                $pro_price = $row_pro['p_price'];
-		                $pro_image = $row_pro['p_image'];
+                                while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-                        echo "
+                                    $pro_id = $row_pro['p_id'];
+                                    $pro_title = $row_pro['p_title'];
+                                    $pro_price = $row_pro['p_price'];
+                                    $pro_image = $row_pro['p_image'];
+
+                                    echo "
                         
                         <div class='col-md-4 col-sm-4 col-xs-4'>
         
@@ -181,30 +181,29 @@
 
                         
                         ";
-  
-                        }
-                        }		    
-                        ?>
-    
-  </div>  
-  <div class="column">
-  <?php
-                    if(!isset($_GET['product_women'])){
-		                
+                                }
+                            }
+                            ?>
 
-	                    global $con;
+                        </div>
+                        <div class="column">
+                            <?php
+                            if (!isset($_GET['product_women'])) {
 
-	                    $get_pro = "select * from product_women";
-	                    $run_pro = mysqli_query($con, $get_pro);
 
-	                    while($row_pro=mysqli_fetch_array($run_pro)){
+                                global $con;
 
-		                $pro_id = $row_pro['p_id'];
-		                $pro_title = $row_pro['p_title'];
-		                $pro_price = $row_pro['p_price'];
-		                $pro_image = $row_pro['p_image'];
+                                $get_pro = "select * from product_women where p_id between 5 and 6";
+                                $run_pro = mysqli_query($con, $get_pro);
 
-                        echo "
+                                while ($row_pro = mysqli_fetch_array($run_pro)) {
+
+                                    $pro_id = $row_pro['p_id'];
+                                    $pro_title = $row_pro['p_title'];
+                                    $pro_price = $row_pro['p_price'];
+                                    $pro_image = $row_pro['p_image'];
+
+                                    echo "
                         
                         <div class='col-md-4 col-sm-4 col-xs-4'>
         
@@ -227,17 +226,16 @@
 
                         
                         ";
-  
-                        }
-                        }		    
-                        ?>
-    
-  </div>
-</div>
+                                }
+                            }
+                            ?>
 
-                    
-                         </div>
-                    <!-- div class="row">
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- div class="row">
 
 
                         <div class="col-md-4 col-sm-4 col-xs-4">
@@ -302,94 +300,95 @@
                     </div -->
 
 
-                    <br>
-                    <br>
-                    
-                    <br>
-                    <br>
+                <br>
+                <br>
 
-                </div>
+                <br>
+                <br>
+
             </div>
         </div>
-        <!-- Footer -->
+    </div>
+    <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
 
-            <!-- Footer Links -->
-            <div class="container-fluid text-center text-md-left">
-    
-                <!-- Grid row -->
-                <div class="row">
-    
-                    <!-- Grid column -->
-                    <div class="col-md-6 mt-md-0 mt-3">
-    
-                        <!-- Content -->
-    
-                        <p><img src="../assets/logo.svg" alt="HYM"></p>
-    
-                    </div>
-                    <!-- Grid column -->
-    
-                    <hr class="clearfix w-100 d-md-none pb-3">
-    
-                    <!-- Grid column -->
-                    <div class="col-md-3 mb-md-0 mb-3">
-    
-                        <!-- Links -->
-    
-    
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Men</a>
-                            </li>
-                            <li>
-                                <a href="#!">Women</a>
-                            </li>
-                            <li>
-                                <a href="#!">Kids</a>
-                            </li>
-    
-                        </ul>
-    
-                    </div>
-                    <!-- Grid column -->
-    
-                    <!-- Grid column -->
-                    <div class="col-md-3 mb-md-0 mb-3">
-    
-                        <!-- Links -->
-    
-    
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Wishlist</a>
-                            </li>
-                            <li>
-                                <a href="#!">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="#!">My shopping Cart</a>
-                            </li>
-    
-                        </ul>
-    
-                    </div>
-                    <!-- Grid column -->
-    
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+
+                    <p><img src="../assets/logo.svg" alt="HYM"></p>
+
                 </div>
-                <!-- Grid row -->
-    
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Men</a>
+                        </li>
+                        <li>
+                            <a href="#!">Women</a>
+                        </li>
+                        <li>
+                            <a href="#!">Kids</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Wishlist</a>
+                        </li>
+                        <li>
+                            <a href="#!">Sign In</a>
+                        </li>
+                        <li>
+                            <a href="#!">My shopping Cart</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
             </div>
-            <!-- Footer Links -->
-    
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3" style="font-size: 14px;">© 2019 Copyright:
-                <a href="https://mdbootstrap.com/education/bootstrap/"> hym.com</a>
-            </div>
-            <!-- Copyright -->
-    
-        </footer>
-        <!-- Footer -->
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="font-size: 14px;">© 2019 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> hym.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
 
 
     </div>
