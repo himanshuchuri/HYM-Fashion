@@ -22,6 +22,7 @@ body{
     margin: 0;
     font-family: Arial;
 }
+
 footer {
     background: #FAECFB
 }
@@ -42,7 +43,7 @@ footer a{
   }
   
   body {
-    margin: 0;
+   
     font-family: Arial;
   }
   
@@ -70,7 +71,7 @@ footer a{
   .column img {
     margin-top: 8px;
     vertical-align: middle;
-    width: 100%;
+    width: 50% !important;
   }
   
   /* Responsive layout - makes a two column-layout instead of four columns */

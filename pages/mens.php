@@ -37,7 +37,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <a class="nav-link" href="#">Wishlist</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Sign Out</a>
+                        <a class="nav-link" href="signup.php">Sign Out</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
@@ -87,234 +87,145 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
             </div>
-            <div class="col-md-9">
-                <div class="container">
+            <div class="col-md-9" style="background:#fffdf5;">
+                <div class="container" >
                     <br>
                     <br>
                     <center>
-                        <h5>MEN'S CLOTHING</h5>
+                        <h3><b>MEN'S CLOTHING</b></h3>
                     </center>
                     <br>
-                    <div class="row">
-                        <div class="column">
-                            <?php
-                            if (!isset($_GET['product_men'])) {
+                    <?php
+                    if (!isset($_GET['product_men'])) {
 
 
-                                global $con;
+                        global $con;
 
-                                $get_pro = "select * from product_men where p_id between 1 and 4";
-                                $run_pro = mysqli_query($con, $get_pro);
+                        $get_pro = "select * from product_men";
+                        $run_pro = mysqli_query($con, $get_pro);
+                        $rowcount = 0;
 
-                                while ($row_pro = mysqli_fetch_array($run_pro)) {
+                        while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-                                    $pro_id = $row_pro['p_id'];
-                                    $pro_title = $row_pro['p_title'];
-                                    $pro_price = $row_pro['p_price'];
-                                    $pro_image = $row_pro['p_image'];
-
-                                    echo "
-                        
-                        <div class='col-md-4 col-sm-4 col-xs-4'>
-        
-                         
-
-        
-                         <center><h3>$pro_title</h3></center>
-                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
-                         <p><center><b>PRICE: INR $pro_price</b></center></p>
-                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
-                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
-                            width: 182px;
-                            padding: 0px;
-                            '>+Cart</button></center></a><br><br>
-                         </div>
-                         
+                            $pro_id = $row_pro['p_id'];
+                            $pro_title = $row_pro['p_title'];
+                            $pro_price = $row_pro['p_price'];
+                            $pro_image = $row_pro['p_image'];
 
 
-                        
-                        ";
-                                }
+                            if ($rowcount == 0) {
+                                echo "<div class='row'>";
                             }
-                            ?>
+                            echo "
+                                    <div class='column' >
+                                     <div>
+                                <center><h5><b>$pro_title</b></h5></center>
+                                <p><center><img src='../assets/$pro_image' /></center></p>
+                                <p><center><b>PRICE: INR $pro_price</b></center></p>
+                                <center><form method='POST'><button type='submit' style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                           background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                           background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                           background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                           width: 182px;
+                           padding: 0px;
+                           ' name='add_cart' >+Cart</button></form></center><br><br>
                         </div>
-                        <div class="column">
-                            <?php
-                            if (!isset($_GET['product_men'])) {
-
-
-                                global $con;
-
-                                $get_pro = "select * from product_men where p_id between 5 and 8";
-                                $run_pro = mysqli_query($con, $get_pro);
-
-                                while ($row_pro = mysqli_fetch_array($run_pro)) {
-
-                                    $pro_id = $row_pro['p_id'];
-                                    $pro_title = $row_pro['p_title'];
-                                    $pro_price = $row_pro['p_price'];
-                                    $pro_image = $row_pro['p_image'];
-
-                                    echo "
-                        
-                        <div class='col-md-4 col-sm-4 col-xs-4'>
-        
-                         
-
-        
-                         <center><h3>$pro_title</h3></center>
-                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
-                         <p><center><b>PRICE: INR $pro_price</b></center></p>
-                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
-                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
-                            width: 182px;
-                            padding: 0px;
-                            '>+Cart</button></center></a><br><br>
-                         </div>
-                         
-
-
-                        
-                        ";
-                                }
+                         </div>";
+                            $rowcount++;
+                            if ($rowcount == 3) {
+                                echo "</div>";
+                                $rowcount = 0;
                             }
-                            ?>
-
-                        </div>
-                        <div class="column">
-                            <?php
-                            if (!isset($_GET['product_men'])) {
-
-
-                                global $con;
-
-                                $get_pro = "select * from product_men where p_id between 9 and 12";
-                                $run_pro = mysqli_query($con, $get_pro);
-
-                                while ($row_pro = mysqli_fetch_array($run_pro)) {
-
-                                    $pro_id = $row_pro['p_id'];
-                                    $pro_title = $row_pro['p_title'];
-                                    $pro_price = $row_pro['p_price'];
-                                    $pro_image = $row_pro['p_image'];
-
-                                    echo "
-                        
-                        <div class='col-md-4 col-sm-4 col-xs-4'>
-        
-                         
-
-        
-                         <center><h3>$pro_title</h3></center>
-                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
-                         <p><center><b>PRICE: INR $pro_price</b></center></p>
-                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
-                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
-                            width: 182px;
-                            padding: 0px;
-                            '>+Cart</button></center></a><br><br>
-                         </div>
-                         
-
-
-                        
-                        ";
-                                }
-                            }
-                            ?>
-
-                        </div>
-                    </div>
-
-
+                        }
+                    }
+                    ?>
                 </div>
+                <br>
+                <br>
+
+
             </div>
         </div>
-        <!-- Footer -->
-        <footer class="page-footer font-small blue pt-4">
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
 
-            <!-- Footer Links -->
-            <div class="container-fluid text-center text-md-left">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
 
-                <!-- Grid row -->
-                <div class="row">
+            <!-- Grid row -->
+            <div class="row">
 
-                    <!-- Grid column -->
-                    <div class="col-md-6 mt-md-0 mt-3">
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
 
-                        <!-- Content -->
+                    <!-- Content -->
 
-                        <p><img src="../assets/logo.svg" alt="HYM"></p>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <hr class="clearfix w-100 d-md-none pb-3">
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 mb-md-0 mb-3">
-
-                        <!-- Links -->
-
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Men</a>
-                            </li>
-                            <li>
-                                <a href="#!">Women</a>
-                            </li>
-                            <li>
-                                <a href="#!">Kids</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-3 mb-md-0 mb-3">
-
-                        <!-- Links -->
-
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="#!">Wishlist</a>
-                            </li>
-                            <li>
-                                <a href="#!">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="#!">My shopping Cart</a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <!-- Grid column -->
+                    <p><img src="../assets/logo.svg" alt="HYM"></p>
 
                 </div>
-                <!-- Grid row -->
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Men</a>
+                        </li>
+                        <li>
+                            <a href="#!">Women</a>
+                        </li>
+                        <li>
+                            <a href="#!">Kids</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">Wishlist</a>
+                        </li>
+                        <li>
+                            <a href="#!">Sign In</a>
+                        </li>
+                        <li>
+                            <a href="#!">My shopping Cart</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
 
             </div>
-            <!-- Footer Links -->
+            <!-- Grid row -->
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3" style="font-size: 14px;">© 2019 Copyright:
-                <a href="https://mdbootstrap.com/education/bootstrap/"> hym.com</a>
-            </div>
-            <!-- Copyright -->
+        </div>
+        <!-- Footer Links -->
 
-        </footer>
-        <!-- Footer -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="font-size: 14px;">© 2019 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> hym.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 
 
 
