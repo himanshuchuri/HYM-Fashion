@@ -2,6 +2,37 @@
 
 session_start();
 $con = mysqli_connect('localhost:3306', 'root', '', 'test');
+
+
+if (isset($_POST['add_cart'])) {
+    global $con;
+
+    //$ip = getIp();
+
+    $pro_id = $_GET['add_cart'];
+
+    $check_pro = "select * from cart where p_id='$pro_id'";
+
+    $run_check = mysqli_query($con, $check_pro);
+
+
+    /*if(mysqli_num_rows($run_check)>0){
+
+	echo "KAKAAAKAKAKKAK";
+	
+	}
+	else {*/
+
+    $insert_pro = "insert into cart (p_id,qty) values ('$pro_id',1)";
+
+    $run_pro = mysqli_query($con, $insert_pro);
+
+    echo "<script>window.open('cart.php','_self')</script>";
+    //}
+
+
+
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,7 +71,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <a class="nav-link" href="signup.php">Sign Out</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                        <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>

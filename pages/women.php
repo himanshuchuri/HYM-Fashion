@@ -74,7 +74,7 @@ if (isset($_POST['add_cart'])) {
                         <a class="nav-link" href="signup.php">Sign Out</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                        <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
