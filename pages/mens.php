@@ -55,23 +55,25 @@
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
+                <center>
+                <h3><b>Our Product Suppliers</b></h3></center>
                 <br> 
-                <center><img src="../assets/versace.png" alt="img1" style="width: 80%;"></center>
+                <center><img src="../assets/versace.png" alt="img1" style="width: 50%;"></center>
                 <br>
-                <center><img src="../assets/zara.png" alt="img1" style="width: 80%;"></center>
+                <center><img src="../assets/zara.png" alt="img1" style="width: 50%;"></center>
                 <br>
 
-                <center><img src="../assets/tommy.png" alt="img1" style="width: 80%;"></center>
+                <center><img src="../assets/tommy.png" alt="img1" style="width: 50%;"></center>
                 <br>
 
                 <center><img src="../assets/levis.png" alt="img1" style="width: 80%;"></center>
                 <br>
 
-                <center><img src="../assets/Gucci.png" alt="img1" style="width: 80%;"></center>
+                <center><img src="../assets/Gucci.png" alt="img1" style="width: 50%;"></center>
                 <br>
                 
                 
-                <center><img src="../assets/allen_solly.png" alt="img1" style="width: 80%;"></center>
+                <center><img src="../assets/allen_solly.png" alt="img1" style="width: 50%;"></center>
 
             </div>
             <div class="col-md-9">
