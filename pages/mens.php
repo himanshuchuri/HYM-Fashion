@@ -104,19 +104,20 @@
                         
                         <div class='col-md-4 col-sm-4 col-xs-4'>
         
-                         <h3>$pro_title</h3>
-                         <p><img src='../assets/$pro_image' width='200' height='200'/></p>
-                         <p><b>PRICE: INR $pro_price</b></p>
-                         <a href='#'><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                         <center><h3>$pro_title</h3></center>
+                         <p><center><img src='../assets/$pro_image' width='200' height='200'/></center></p>
+                         <p><center><b>PRICE: INR $pro_price</b></center></p>
+                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
                             background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
                             background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D); width:80px; height:30px;
-                            width=50px;
+                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                            width: 182px;
                             padding: 0px;
-                            '>+Cart</button></a>
+                            '>+Cart</button></center></a><br><br>
                          </div>
-                         <br>
-                         <br>
+                        <!-- <br>
+                         <br> --!>
+                         
 
 
                         
@@ -126,63 +127,6 @@
                         }		    
                         ?>
                          </div>
-                        <!--div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_1.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_2.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_3.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-
-
-                    </div>
-                    <br>
-                    <br>
-                    <div class="row">
-
-
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_4.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_5.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-4">
-                            <center><img src="../assets/MP_6.jpg" alt="img1" style="width: 80%;"></center>
-                            <font class="caption"> Company Name </font>
-                            <br>
-                            <font class="product_name">Product name</font>
-                            <br>
-                            <font class="price">₹799</font>
-                        </div-->
-
 
                     
                     <br>
