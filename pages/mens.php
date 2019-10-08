@@ -38,28 +38,24 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                     </li>
                     <li class="nav-item">
 
-                       
-                        <?php
-                            global $con;
 
-                    
-                            if(!isset($_SESSION['email']))
-                            
-                            {
-                                echo "<a class='nav-link' href='mens.php?in=true'>Sign In</a>";
-                                if(isset($_GET['in'])){
-                                    echo "<script> window.location.assign('signup.php')</script>";	
-                                }
+                        <?php
+                        global $con;
+
+
+                        if (!isset($_SESSION['email'])) {
+                            echo "<a class='nav-link' href='mens.php?in=true'>Sign In</a>";
+                            if (isset($_GET['in'])) {
+                                echo "<script> window.location.assign('signup.php')</script>";
                             }
-                            else{
-                                echo "<a class='nav-link' href='mens.php?out=true'>Sign Out</a>";
-                               if(isset($_GET['out']))
-                                {
-                                    echo "<script> window.location.assign('signup.php')</script>";
-                                    session_unset();
-                                }
+                        } else {
+                            echo "<a class='nav-link' href='mens.php?out=true'>Sign Out</a>";
+                            if (isset($_GET['out'])) {
+                                echo "<script> window.location.assign('signup.php')</script>";
+                                session_unset();
                             }
-                    ?>
+                        }
+                        ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
@@ -110,7 +106,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
             </div>
             <div class="col-md-9" style="background:#fffdf5;">
-                <div class="container" >
+                <div class="container">
                     <br>
                     <br>
                     <center>
@@ -129,11 +125,11 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
                         while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-                           $pro_id = $row_pro['p_id'];
+                            $pro_id = $row_pro['p_id'];
                             $pro_title = $row_pro['p_title'];
                             $pro_price = $row_pro['p_price'];
                             $pro_image = $row_pro['p_image'];
- 
+
 
                             if ($rowcount == 0) {
                                 echo "<div class='row'>";
@@ -251,57 +247,50 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
     <?php
-    function getIp() {
+    function getIp()
+    {
         $ip = $_SERVER['REMOTE_ADDR'];
-     
+
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
         }
-     
+
         return $ip;
     }
-        
 
 
-    
-        if(isset($_POST['add_cart'])){
-            if ($_SESSION['email']!=" ") {
-    global $con;
-
-    $ip = getIp();
-    
-    $e = $_SESSION['email'];
-    $pro_id = $_POST['add_cart'];
-    $check_pro = "select * from cart where p_id='$pro_id' and email='$e'";
-
-    $run_check = mysqli_query($con, $check_pro);
 
 
-   if(mysqli_num_rows($run_check)>0){
-       echo "<script> alert('Item already added in the cart!!!!') </script>";
+    if (isset($_POST['add_cart'])) {
+        if (isset($_SESSION['email'])) {
+            global $con;
 
-	
-	}
-	else {
+            $ip = getIp();
 
-    $insert_pro = "insert into cart (p_id,email,qty) values ($pro_id,'$e',1)";
+            $e = $_SESSION['email'];
+            $pro_id = $_POST['add_cart'];
+            $check_pro = "select * from cart where p_id='$pro_id' and email='$e'";
 
-    $run_pro = mysqli_query($con, $insert_pro);
+            $run_check = mysqli_query($con, $check_pro);
 
-    //echo "<script>window.open('cart.php','_self')</script>";
+
+            if (mysqli_num_rows($run_check) > 0) {
+                echo "<script> alert('Item already added in the cart!!!!') </script>";
+            } else {
+
+                $insert_pro = "insert into cart (p_id,email,qty) values ($pro_id,'$e',1)";
+
+                $run_pro = mysqli_query($con, $insert_pro);
+
+                //echo "<script>window.open('cart.php','_self')</script>";
+            }
+        } else {
+            echo "<script> alert('Please Login')</script> ";
+            echo "<script> window.location.assign('signup.php')</script>";
+        }
     }
-
-        
-
-    }
-    else
-    {
-        echo "<script> alert('Please Login')</script> ";
-        echo "<script> window.location.assign('signup.php')</script>";	
-    }
-}
     ?>
 
     </div>

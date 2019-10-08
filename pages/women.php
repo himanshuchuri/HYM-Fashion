@@ -262,7 +262,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
     if (isset($_POST['add_cart'])) {
-        if ($_SESSION['email'] != " ") {
+        if (isset($_SESSION['email'])) {
             global $con;
 
             $ip = getIp();

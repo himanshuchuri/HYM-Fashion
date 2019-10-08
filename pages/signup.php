@@ -54,7 +54,7 @@ if(isset($_POST['create'])){
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 div1">
 			
-				<h1 class="heading1"></h1><img src="../assets/logo.png" width="150px"></h1>
+				<h1 class="heading1"></h1><a href="index.php"><img src="../assets/logo.png" width="150px"></a></h1>
 				<br>
 				<br>
 				<form class="form-container" method="post">
