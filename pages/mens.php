@@ -60,20 +60,30 @@
                 <br> 
                 <center><img src="../assets/versace.png" alt="img1" style="width: 50%;"></center>
                 <br>
+                <br>
                 <center><img src="../assets/zara.png" alt="img1" style="width: 50%;"></center>
+                <br>
                 <br>
 
                 <center><img src="../assets/tommy.png" alt="img1" style="width: 50%;"></center>
                 <br>
+                <br>
 
                 <center><img src="../assets/levis.png" alt="img1" style="width: 80%;"></center>
+                <br>
                 <br>
 
                 <center><img src="../assets/Gucci.png" alt="img1" style="width: 50%;"></center>
                 <br>
+                <br>
                 
                 
                 <center><img src="../assets/allen_solly.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+
+                <center><img src="../assets/hnm.png" alt="img1" style="width: 50%;"></center>
+
 
             </div>
             <div class="col-md-9">

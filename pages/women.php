@@ -55,7 +55,37 @@
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
-                <br> FILTERS GO HERE
+
+                <center>
+                <h3><b>Our Product Suppliers</b></h3></center>
+                <br> 
+                <center><img src="../assets/versace.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+                <center><img src="../assets/zara.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+
+                <center><img src="../assets/tommy.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+
+                <center><img src="../assets/levis.png" alt="img1" style="width: 80%;"></center>
+                <br>
+                <br>
+
+                <center><img src="../assets/Gucci.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+                
+                
+                <center><img src="../assets/allen_solly.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
+
+                <center><img src="../assets/hnm.png" alt="img1" style="width: 50%;"></center>
+
+
             </div>
             <div class="col-md-9">
                 <div class="container">
@@ -65,8 +95,9 @@
                         <h5>WOMENS'S CLOTHING</h5>
                     </center>
                     <br> 
-                    <div class='row'>
-                    <?php
+                    <div class="row"> 
+  <div class="column">
+  <?php
                     if(!isset($_GET['product_women'])){
 		                
 
@@ -86,19 +117,21 @@
                         
                         <div class='col-md-4 col-sm-4 col-xs-4'>
         
-                         <h3>$pro_title</h3>
-                         <p><img src='../assets/$pro_image' width='200' height='200'/></p>
-                         <p><b>PRICE: INR $pro_price</b></p>
-                         <a href='#'><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                         
+
+        
+                         <center><h3>$pro_title</h3></center>
+                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
+                         <p><center><b>PRICE: INR $pro_price</b></center></p>
+                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
                             background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
                             background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D); width:80px; height:30px;
-                            width=50px;
+                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                            width: 182px;
                             padding: 0px;
-                            '>+Cart</button></a>
+                            '>+Cart</button></center></a><br><br>
                          </div>
-                         <br>
-                         <br>
+                         
 
 
                         
@@ -107,6 +140,102 @@
                         }
                         }		    
                         ?>
+  </div>
+  <div class="column">
+  <?php
+                    if(!isset($_GET['product_women'])){
+		                
+
+	                    global $con;
+
+	                    $get_pro = "select * from product_women";
+	                    $run_pro = mysqli_query($con, $get_pro);
+
+	                    while($row_pro=mysqli_fetch_array($run_pro)){
+
+		                $pro_id = $row_pro['p_id'];
+		                $pro_title = $row_pro['p_title'];
+		                $pro_price = $row_pro['p_price'];
+		                $pro_image = $row_pro['p_image'];
+
+                        echo "
+                        
+                        <div class='col-md-4 col-sm-4 col-xs-4'>
+        
+                         
+
+        
+                         <center><h3>$pro_title</h3></center>
+                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
+                         <p><center><b>PRICE: INR $pro_price</b></center></p>
+                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                            width: 182px;
+                            padding: 0px;
+                            '>+Cart</button></center></a><br><br>
+                         </div>
+                         
+
+
+                        
+                        ";
+  
+                        }
+                        }		    
+                        ?>
+    
+  </div>  
+  <div class="column">
+  <?php
+                    if(!isset($_GET['product_women'])){
+		                
+
+	                    global $con;
+
+	                    $get_pro = "select * from product_women";
+	                    $run_pro = mysqli_query($con, $get_pro);
+
+	                    while($row_pro=mysqli_fetch_array($run_pro)){
+
+		                $pro_id = $row_pro['p_id'];
+		                $pro_title = $row_pro['p_title'];
+		                $pro_price = $row_pro['p_price'];
+		                $pro_image = $row_pro['p_image'];
+
+                        echo "
+                        
+                        <div class='col-md-4 col-sm-4 col-xs-4'>
+        
+                         
+
+        
+                         <center><h3>$pro_title</h3></center>
+                         <p><center><img src='../assets/$pro_image' style='width=600%;'/></center></p>
+                         <p><center><b>PRICE: INR $pro_price</b></center></p>
+                         <a href='#'><center><button style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                            background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                            width: 182px;
+                            padding: 0px;
+                            '>+Cart</button></center></a><br><br>
+                         </div>
+                         
+
+
+                        
+                        ";
+  
+                        }
+                        }		    
+                        ?>
+    
+  </div>
+</div>
+
+                    
                          </div>
                     <!-- div class="row">
 
