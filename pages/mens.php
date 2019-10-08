@@ -2,37 +2,6 @@
 
 session_start();
 $con = mysqli_connect('localhost:3306', 'root', '', 'test');
-
-
-if (isset($_POST['add_cart'])) {
-    global $con;
-
-    //$ip = getIp();
-
-    $pro_id = $_GET['add_cart'];
-
-    $check_pro = "select * from cart where p_id='$pro_id'";
-
-    $run_check = mysqli_query($con, $check_pro);
-
-
-    /*if(mysqli_num_rows($run_check)>0){
-
-	echo "KAKAAAKAKAKKAK";
-	
-	}
-	else {*/
-
-    $insert_pro = "insert into cart (p_id,qty) values ('$pro_id',1)";
-
-    $run_pro = mysqli_query($con, $insert_pro);
-
-    echo "<script>window.open('cart.php','_self')</script>";
-    //}
-
-
-
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,7 +37,29 @@ if (isset($_POST['add_cart'])) {
                         <a class="nav-link" href="#">Wishlist</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Sign Out</a>
+
+                       
+                        <?php
+                            global $con;
+
+                    
+                            if(!isset($_SESSION['email']))
+                            
+                            {
+                                echo "<a class='nav-link' href='mens.php?in=true'>Sign In</a>";
+                                if(isset($_GET['in'])){
+                                    echo "<script> window.location.assign('signup.php')</script>";	
+                                }
+                            }
+                            else{
+                                echo "<a class='nav-link' href='mens.php?out=true'>Sign Out</a>";
+                               if(isset($_GET['out']))
+                                {
+                                    echo "<script> window.location.assign('signup.php')</script>";
+                                    session_unset();
+                                }
+                            }
+                    ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
@@ -138,11 +129,11 @@ if (isset($_POST['add_cart'])) {
 
                         while ($row_pro = mysqli_fetch_array($run_pro)) {
 
-                            $pro_id = $row_pro['p_id'];
+                           $pro_id = $row_pro['p_id'];
                             $pro_title = $row_pro['p_title'];
                             $pro_price = $row_pro['p_price'];
                             $pro_image = $row_pro['p_image'];
-
+ 
 
                             if ($rowcount == 0) {
                                 echo "<div class='row'>";
@@ -159,7 +150,7 @@ if (isset($_POST['add_cart'])) {
                            background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
                            width: 182px;
                            padding: 0px;
-                           ' name='add_cart' >+Cart</button></form></center><br><br>
+                           ' name='add_cart' value='$pro_id' >+Cart</button></form></center><br><br>
                         </div>
                          </div>";
                             $rowcount++;
@@ -259,6 +250,59 @@ if (isset($_POST['add_cart'])) {
     <!-- Footer -->
 
 
+    <?php
+    function getIp() {
+        $ip = $_SERVER['REMOTE_ADDR'];
+     
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+     
+        return $ip;
+    }
+        
+
+
+    
+        if(isset($_POST['add_cart'])){
+            if ($_SESSION['email']!=" ") {
+    global $con;
+
+    $ip = getIp();
+    
+    $e = $_SESSION['email'];
+    $pro_id = $_POST['add_cart'];
+    $check_pro = "select * from cart where p_id='$pro_id' and email='$e'";
+
+    $run_check = mysqli_query($con, $check_pro);
+
+
+   if(mysqli_num_rows($run_check)>0){
+       echo "<script> alert('Item already added in the cart!!!!') </script>";
+
+	
+	}
+	else {
+
+    $insert_pro = "insert into cart (p_id,email,qty) values ($pro_id,'$e',1)";
+
+    $run_pro = mysqli_query($con, $insert_pro);
+
+    //echo "<script>window.open('cart.php','_self')</script>";
+    }
+
+        
+
+    }
+    else
+    {
+        echo "<script> alert('Please Login')</script> ";
+        echo "<script> window.location.assign('signup.php')</script>";	
+    }
+}
+    ?>
 
     </div>
 
@@ -268,5 +312,8 @@ if (isset($_POST['add_cart'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
+
+
 
 </html>

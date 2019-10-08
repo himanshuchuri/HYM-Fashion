@@ -1,6 +1,7 @@
+
 <?php
 
-session_start();
+
 	$con = mysqli_connect('localhost:3306','root','');
 	
 	/*if($con){
@@ -16,16 +17,19 @@ session_start();
     echo $username;
 
 	$q = "select * from user where email = '$username' && password = '$password'";
-	echo $username;
 	$result = mysqli_query($con, $q);
 	$num = mysqli_num_rows($result);
 	if($num == 1){
-		//;header("location: http://localhost/ip/login.php"); //redirect
-    echo "<script> alert('login succesfully!')</script> ";	
-    echo "<script> window.location.assign('index.php')</script>";	
+        setcookie('email',$username, time()+60*60*7);
+        session_start();
+        $_SESSION['email']=$username;
+    echo "<script> alert('login succesfully! Welcome $username ')</script> ";	
+    //echo "<script> window.location.assign('index.php')</script>";	
+    header("location: index.php");
 	}
 	else{
-		echo "<script> alert('invalid login')</script>";
+        echo "<script> alert('invalid login')</script>";
+        echo "<script> window.location.assign('login.php')</script>";
     }
 }
 ?>
@@ -117,7 +121,7 @@ session_start();
 
 
     <div class="header shadow">
-        <img class="img-fluid" id="header_logo" src="../assets/logo.png" />
+       <a href="index.php"> <img class="img-fluid" id="header_logo" src="../assets/logo.png" /></a>
     </div>
 
     <div class="main_holder">
