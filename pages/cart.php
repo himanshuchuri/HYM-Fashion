@@ -57,6 +57,9 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                                     session_unset();
                                 }
                             }
+
+                            
+
                     ?>
                         </li>
                         <li class="nav-item">
@@ -230,9 +233,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         </li>
                         <li>
                             <a href="#!">Women</a>
-                        </li>
-                        <li>
-                            <a href="#!">Kids</a>
                         </li>
 
                     </ul>

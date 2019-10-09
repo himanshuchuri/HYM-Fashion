@@ -102,6 +102,8 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                 <br>
 
                 <center><img src="../assets/hnm.png" alt="img1" style="width: 50%;"></center>
+                <br>
+                <br>
 
 
             </div>
