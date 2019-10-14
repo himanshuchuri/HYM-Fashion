@@ -1,4 +1,5 @@
-<?php include('home.php')?>
+<?php include('home.php');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,39 +15,11 @@
 </head>
 
 <body>
-
-    <!-- <nav class="navbar navbar-expand-sm justify-content-center">
-
-        <ul class="navbar-nav" style="margin-top: 1%; margin-bottom: 0.9%">
-            <li class="nav-item">
-                <a class="nav-link" href="#"> Men</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"> Women</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Kids</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Wishlist</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sign In <img src="../assets/down-arrow.png" alt=""></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><img src="../assets/cart.png" style="width: 100%;" alt="Search"></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><img src="../assets/search.png" style="width: 100%;" alt="Search"></a>
-            </li>
-
-        </ul>
-    </nav> -->
     <nav class="navbar navbar-light navbar-expand-md  justify-content-center">
-        <a href="/" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
+        <a href="index.php" class="navbar-brand mr-0"><img src="../assets/logo.svg" alt="HYM Fashion" style="width: 70%; height: 70%;"></a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item ">
@@ -56,15 +29,36 @@
                     <a class="nav-link" href="women.php
                     ">Women</a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Wishlist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
+                <?php
+                            global $con;
+
+                    
+                            if(!isset($_SESSION['email']))
+                            
+                            {
+                                echo "<a class='nav-link' href='mens.php?in=true'>Sign In</a>";
+                                if(isset($_GET['in'])){
+                                    echo "<script> window.location.assign('signup.php')</script>";	
+                                }
+                            }
+                            else{
+                                echo "<a class='nav-link' href='mens.php?out=true'>Sign Out</a>";
+                               if(isset($_GET['out']))
+                                {
+                                    echo "<script> window.location.assign('signup.php')</script>";
+                                    session_unset();
+                                }
+                            }
+                    ?>
+                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                    <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
@@ -76,28 +70,6 @@
             </ul>
         </div>
     </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel" data-interval=2500>
@@ -143,24 +115,11 @@
 
     <!--/.Carousel Wrapper-->
 
-
-
     <div style="background: rgb(213, 246, 248);">
-
-
-
-
-
-
-
-
         <br>
         <div class="container-fluid">
 
             <div class="container">
-
-
-
                 <div class="container-fluid">
                     <center>
                         <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/clock.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> DEALS OF THE DAY ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
@@ -193,60 +152,15 @@
                             <a href=""><img src="../assets/DOD_9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
 
                         </div>
-
                     </div>
-
-
                 </div>
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
     </div>
-
-
-
-
-
-
     <div style="background: rgb(255, 250, 238);">
-
-
-
-
-
-
-
-
         <br>
         <div class="container-fluid">
-
             <div class="container">
-
-
-
                 <div class="container-fluid">
                     <center>
                         <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/lightning.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> WHAT'S NEW ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
@@ -279,37 +193,10 @@
                             <a href=""><img src="../assets/WN_9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
 
                         </div>
-
                     </div>
-
-
                 </div>
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
     </div>
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
@@ -337,18 +224,13 @@
 
                     <!-- Links -->
 
-
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">Men</a>
+                            <a href="mens.php">Men</a>
                         </li>
                         <li>
-                            <a href="#!">Women</a>
+                            <a href="women.php">Women</a>
                         </li>
-                        <li>
-                            <a href="#!">Kids</a>
-                        </li>
-
                     </ul>
 
                 </div>
@@ -365,10 +247,10 @@
                             <a href="#!">Wishlist</a>
                         </li>
                         <li>
-                            <a href="#!">Sign In</a>
+                            <a href="signup.php">Sign In</a>
                         </li>
                         <li>
-                            <a href="#!">My shopping Cart</a>
+                            <a href="cart.php">My shopping Cart</a>
                         </li>
 
                     </ul>
@@ -390,38 +272,6 @@
 
     </footer>
     <!-- Footer -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

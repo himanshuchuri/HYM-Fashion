@@ -8,19 +8,28 @@ if($con->connect_error) {
   exit('Could not connect');
 }
 if(isset($_POST['create'])){
-	echo $fnm = $_POST['fnm'];
-	echo $lnm = $_POST['lnm'];
-	echo $phone = $_POST['phone'];
-	echo $email = $_POST['eml'];
-	echo $address = $_POST['addr'];
-	echo $pass = $_POST['password'];
-	echo $cpass = $_POST['cnfpassword'];
-//onclick="validate()"
+	 $fnm = $_POST['fnm'];
+	 $lnm = $_POST['lnm'];
+	 $phone = $_POST['phone'];
+	 $email = $_POST['eml'];
+	 $address = $_POST['addr'];
+	 $pass = $_POST['password'];
+	 $cpass = $_POST['cnfpassword'];
+
+	$q1="select * from user where email='$email'";
+	$r1=mysqli_query($con,$q1);
+	$num = mysqli_num_rows($r1);
+	if($num>=1){
+		echo "<script> alert('$email alreaady exist! Please try another email')";
+		echo "<script> window.location.assign('signup.php')</script>";	
+	}
+	else{
 	if($pass == $cpass){
 	$query= "insert into user values ('$fnm','$lnm','$phone','$email','$address','$pass'); ";
 	mysqli_query($con,$query);
-	echo "<script> window.location.assign('login.html')</script>";
+	echo "<script> window.location.assign('login.php')</script>";
 	}
+}
 }
 ?>
 <!DOCTYPE html>
@@ -45,7 +54,7 @@ if(isset($_POST['create'])){
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12 div1">
 			
-				<h1 class="heading1"></h1><img src="../assets/logo.png" width="150px"></h1>
+				<h1 class="heading1"></h1><a href="index.php"><img src="../assets/logo.png" width="150px"></a></h1>
 				<br>
 				<br>
 				<form class="form-container" method="post">

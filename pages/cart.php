@@ -1,3 +1,9 @@
+<?php
+//include ('functions.php');
+session_start();
+$con = mysqli_connect('localhost:3306', 'root', '', 'test');
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -21,20 +27,43 @@
                 <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
                     <ul class="navbar-nav mx-auto text-center">
                         <li class="nav-item ">
-                            <a class="nav-link" href="mens.html">Men<span class="sr-only"></span></a>
+                            <a class="nav-link" href="mens.php">Men<span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Women</a>
+                            <a class="nav-link" href="women.php">Women</a>
                         </li>
                         
                         <li class="nav-item">
                             <a class="nav-link" href="#">Wishlist</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.html">Sign In <img src="../assets/down-arrow.png" alt="" ></a>
+                        <?php
+                            global $con;
+
+                    
+                            if(!isset($_SESSION['email']))
+                            
+                            {
+                                echo "<a class='nav-link' href='mens.php?in=true'>Sign In</a>";
+                                if(isset($_GET['in'])){
+                                    echo "<script> window.location.assign('signup.php')</script>";	
+                                }
+                            }
+                            else{
+                                echo "<a class='nav-link' href='mens.php?out=true'>Sign Out</a>";
+                               if(isset($_GET['out']))
+                                {
+                                    echo "<script> window.location.assign('signup.php')</script>";
+                                    session_unset();
+                                }
+                            }
+
+                            
+
+                    ?>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.html"><img src="../assets/cart.png" alt=""></a>
+                            <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
@@ -58,10 +87,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-4 ">
-                            <center><img src="../assets/images/4.png" class="product" alt="Your Product" style="width: 80%;height: 80%;margin-top: 5%; margin-bottom: 5%;"></center>
+                            <center><img src="../assets/100.jpg" class="product" alt="Your Product" style="width: 80%;height: 80%;margin-top: 5%; margin-bottom: 5%;"></center>
                         </div>
                         <div class="col-sm-7 cart-details" style="margin-top: 3%;">
-                            Product name <br> sold by : Lorem Ipsum
+                            Black T-Shirt <br> sold by : HYM Fashion
                             <br>
                             <br>
                             <div class=" row ">
@@ -75,7 +104,7 @@
                             </div>
                             <div class="row ">
                                 <div class="col-sm-3 ">
-                                    ₹ 2300
+                                    ₹ 600
                                 </div>
                                 <div class="col-sm-4 ">
                                     50% off
@@ -111,7 +140,7 @@
 
                         </div>
                         <div class="col-sm-6">
-                            ₹ 2300
+                            ₹ 600
 
                         </div>
 
@@ -139,7 +168,7 @@
                             <b>TOTAL</b>
                         </div>
                         <div class="col-sm-6">
-                            ₹ 2438
+                            ₹ 738
                         </div>
                     </div>
 
@@ -151,12 +180,12 @@
         <br>
         <div class="row">
             <div class="col-sm-4">
-                <button type="button" class="btn btn-outline-dark" style="width: 100%;"> <img src="../assets/wishlist.png" alt="Wishlist" style="margin-right: 4%;">     Add more from Wishlist  <img src="../assets/right_arrow.png" style="margin-left: 4%;" alt=""></button>
+                <button type="button" class="btn btn-outline-dark" style="width: 100%;"> <img src="../assets/wishlist.png" alt="Wishlist" style="margin-right: 4%;">     Proceed To Checkout  <img src="../assets/right_arrow.png" style="margin-left: 4%;" alt=""></button>
             </div>
             <div class="col-sm-1">
             </div>
             <div class="col-sm-3">
-                <button type="button" class="btn btn-outline-dark " style="height: 100%;">Continue Shopping</button>
+                <button type="button" class="btn btn-outline-dark " style="height: 100%;">Add More...</button>
             </div>
 
         </div>
@@ -204,9 +233,6 @@
                         </li>
                         <li>
                             <a href="#!">Women</a>
-                        </li>
-                        <li>
-                            <a href="#!">Kids</a>
                         </li>
 
                     </ul>
