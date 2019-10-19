@@ -66,7 +66,13 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                        <form method="get">
+                            <input type="text" placeholder="Search.." name="user_query" style="margin-top: 8px;
+                            margin-right: 16px;
+                            font-size: 17px;">
+                           <input type="submit" style="margin-top: 8px;
+                           margin-right: 16px; float: right;" name="search" value="Search" />
+                        </form> 
                         </li>
                     </ul>
                     <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
