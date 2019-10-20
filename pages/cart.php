@@ -34,7 +34,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Wishlist</a>
+                            <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
                         <?php
@@ -136,6 +136,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                 <section name="edit_hriday">
                 <?php
                         $tablename = 'cart';
+                        if(isset($_SESSION['email'])){
                         if(!isset($_GET[$tablename])){
                         
                             global $con;
@@ -238,6 +239,11 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             }
                         } 
                         } 
+                    }
+                    else{
+                        echo "<script> alert('Please Login')</script> ";
+                        echo "<script> window.location.assign('signup.php')</script>";
+                    }
                             ?>
                             
 
