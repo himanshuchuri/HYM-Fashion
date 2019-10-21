@@ -240,7 +240,7 @@
             <div class="container">
                 <div class="container-fluid">
                     <center>
-                        <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/clock.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> DEALS OF THE DAY ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
+                        <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/clock.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> DIWALI DHAMAKA DEALS ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
                                 More
                                 >></a></h3>
                     </center>
