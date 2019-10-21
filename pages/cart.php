@@ -153,13 +153,12 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             
                             while($row_pro=mysqli_fetch_array($run_pro)){
                             
-                                
                                 $cidcart = $row_pro['p_id'];
                             
                                 $cquant = $row_pro['qty'];
 
-                                if($cquant<200){
-                                $get_cakes = "select * from product_men where p_id =$cidcart"; 
+                                    
+                                $get_cakes = "select * from product_men where p_id =$cidcart union all select * from product_women  where p_id=$cidcart "; 
                             
                                 $cid=0;
                                 $cname="";
@@ -208,7 +207,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                                             </div>
                                             <div class='row '>
                                                 <div class='col-sm-3 '>
-                                                    ₹ 600
+                                                    ₹ $pprice
                                                 </div>
                                                 <div class='col-sm-4 '>
                                                     50% off
@@ -218,32 +217,44 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                                             <br>
                                             <div class='row '>
                                                 <div class='col-sm-3'>
-                                                    <button type='button' class='btn btn-outline-dark'>Remove</button>
-                                                </div>
+                                                    <form method='post'>
+                                                    <button type='submit' class='btn btn-outline-dark' name='rmv' value = $cidcart >Remove</button>
+                                                    </form>
+                                                    </div>
                                                 <div class='col-sm-1'>
                 
                                                 </div>
-                                                <div class='col-sm-6'>
-                                                    <button type='button' class='btn btn-outline-dark'>Move to Wishlist</button>
-                                                </div>
+                        
                 
                                             </div>
                                         </div>
                                     </div>
                                 </div>";
-                                    
-                                
-                                
-                            
-                            }
                             }
                         } 
                         } 
+                        
+                    if(isset($_POST['rmv'])){
+                        $con; 
+                        $ee = $_SESSION['email'];
+                        $iid = $_POST['rmv'];
+                        $q1="delete from cart where p_id=$iid && email='$ee' ";
+
+                        $r = mysqli_query($con,$q1);
+
+                        if($r){
+                            echo "<script> window.location.assign('cart.php')</script>";
+                        }
+                    
+
+                        }
                     }
                     else{
                         echo "<script> alert('Please Login')</script> ";
                         echo "<script> window.location.assign('signup.php')</script>";
                     }
+
+
                             ?>
                             
 
@@ -369,9 +380,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
                         <li>
                             <a href="#!">Sign In</a>
                         </li>

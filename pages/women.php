@@ -1,8 +1,7 @@
 <?php
-//include ('functions.php');
+
 session_start();
 $con = mysqli_connect('localhost:3306', 'root', '', 'test');
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,10 +15,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/pages/mens.css">
     <title>Womens</title>
-
-
-
-
 </head>
 
 <body>
@@ -192,11 +187,9 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
-
                 <center>
                     <h3><b>Our Product Suppliers</b></h3>
                 </center>
-
                 <br>
                 <center><img src="../assets/zara.png" alt="img1" style="width: 50%;"></center>
                 <br>
@@ -333,9 +326,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
+
                         <li>
                             <a href="#!">Sign In</a>
                         </li>

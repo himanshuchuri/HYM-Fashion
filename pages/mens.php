@@ -37,8 +37,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <a class="nav-link" href="aboutus.php">About Us</a>
                     </li>
                     <li class="nav-item">
-
-
                         <?php
                         global $con;
 
@@ -162,12 +160,12 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                                     <p><center><img src='../assets/$pro_image' /></center></p>
                                     <p><center><b>PRICE: INR $pro_price</b></center></p>
                                     <center><form method='POST'><button type='submit' style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
-                               background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
-                               background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
-                               background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
-                               width: 182px;
-                               padding: 0px;
-                               ' name='add_cart' value='$pro_id' >+Cart</button></form></center><br><br>
+                           background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                           background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                           background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                           width: 182px;
+                           padding: 0px;
+                           ' name='add_cart' value='$pro_id' >+Cart</button></form></center><br><br>
                             </div></center>
                              </div>";
                                 $rowcount++;
@@ -185,8 +183,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             }
                 ?>
                 </div>
-
-
 
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
@@ -336,9 +332,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
-                        <li>
                             <a href="#!">Sign In</a>
                         </li>
                         <li>
@@ -364,8 +357,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
     </footer>
     <!-- Footer -->
-
-
     <?php
     function getIp()
     {
@@ -379,9 +370,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
         return $ip;
     }
-
-
-
 
     if (isset($_POST['add_cart'])) {
         if (isset($_SESSION['email'])) {

@@ -38,7 +38,6 @@
                 <?php
                             global $con;
 
-                    
                             if(!isset($_SESSION['email']))
                             
                             {
@@ -361,9 +360,7 @@
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
+
                         <li>
                             <a href="signup.php">Sign In</a>
                         </li>
