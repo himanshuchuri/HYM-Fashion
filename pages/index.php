@@ -246,27 +246,27 @@
                     <br>
                     <div class="row">
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_1.jpg" style="width:100%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD1.jpg" style="width:100%;" alt="img1"></a>
 
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_2.jpg" style="width:100%" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_3.jpg" style="width:100%;height: 25%;" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_4.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD2.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD3.jpg" style="width:100%; height: 25%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD4.jpg" style="width:100%" alt="img1"></a>
 
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_5.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD5.jpg" style="width:100%" alt="img1"></a>
 
-                            <a href=""><img src="../assets/DOD_6.jpg" style="width:100%;height: 25%;" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_7.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD6.jpg" style="width:100%;height: 25%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD7.jpg" style="width:100%" alt="img1"></a>
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_8.jpg" style="width:100%" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD8.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
 
                         </div>
                     </div>

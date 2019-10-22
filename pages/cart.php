@@ -313,12 +313,13 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
         <br>
         <div class='row'>
             <div class='col-sm-4'>
-                <button type='button' class='btn btn-outline-dark' style='width: 100%;'> <img src='../assets/wishlist.png' alt='Wishlist' style='margin-right: 4%;'>     Proceed To Checkout  <img src='../assets/right_arrow.png' style='margin-left: 4%;' alt=''></button>
+                <form method="POST" action='pay.php'>
+                <button type='sumbit'  class='btn btn-outline-dark' style='width: 100%;'>      Proceed To Checkout  <img src='../assets/right_arrow.png' style='margin-left: 4%;' alt=''></button>
+                </form>
             </div>
             <div class='col-sm-1'>
             </div>
             <div class='col-sm-3'>
-                <button type='button' class='btn btn-outline-dark' style='height: 100%;'>Add More...</button>
             </div>
 
         </div>
