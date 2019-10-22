@@ -47,7 +47,19 @@ if($isValidChecksum == "TRUE") {
 	{ 
 		foreach($_POST as $paramName => $paramValue) {
 				echo "<br/>" . $paramName . " = " . $paramValue;
+				
 		}
+		echo "<script>
+
+			// Your application has indicated there's an error
+			window.setTimeout(function(){
+		
+				// Move to a new location or you can do something else
+				window.location.href = 'http://localhost/HYM_fashion_rev/pages/continue_shopping.html';
+		
+			}, 2000)
+		
+		</script>";
 	}
 	
 
