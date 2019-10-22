@@ -15,7 +15,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/pages/cart.css">
-    <title>Hello, world!</title>
+    <title>Cart</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Wishlist</a>
+                            <a class="nav-link" href="aboutus.php">About Us</a>
                         </li>
                         <li class="nav-item">
                         <?php
@@ -66,7 +66,13 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                        <form method="get">
+                            <input type="text" placeholder="Search.." name="user_query" style="margin-top: 8px;
+                            margin-right: 16px;
+                            font-size: 17px;">
+                           <input type="submit" style="margin-top: 8px;
+                           margin-right: 16px; float: right;" name="search" value="Search" />
+                        </form> 
                         </li>
                     </ul>
                     <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
@@ -82,9 +88,9 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
         <br>
         <br>
         <div class="row">
-            <div class="col-sm-8 details">
+            <div class="col-sm-8 details"> 
 
-                <div class="container-fluid">
+                <!-- <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-4 ">
                             <center><img src="../assets/100.jpg" class="product" alt="Your Product" style="width: 80%;height: 80%;margin-top: 5%; margin-bottom: 5%;"></center>
@@ -126,48 +132,175 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <section name="edit_hriday">
+                <?php
+                        $tablename = 'cart';
+                        if(isset($_SESSION['email'])){
+                        if(!isset($_GET[$tablename])){
+                        
+                            global $con;
+                            $emailid =$_SESSION['email'];
+                            $get_pro = "select * from $tablename where email = '$emailid'";
+                            $run_pro = mysqli_query($con, $get_pro);
+                            if (!$run_pro) {
+                            printf("Error: %s\n", mysqli_error($con));
+                            exit();
+                        }
+                            $rowcount =0;
+                            //$result = mysqli_query($con,"SELECT * FROM user_list where username = '" . mysqli_real_escape_string($con, $username) . "'"); 
+                            
+                            
+                            while($row_pro=mysqli_fetch_array($run_pro)){
+                            
+                                $cidcart = $row_pro['p_id'];
+                            
+                                $cquant = $row_pro['qty'];
 
+                                    
+                                $get_cakes = "select * from product_men where p_id =$cidcart union all select * from product_women  where p_id=$cidcart "; 
+                            
+                                $cid=0;
+                                $cname="";
+                                $pdesc="";
+                                $pprice=0;
+                                $pimage="";
+                                
+                                
+                                $run_cakes = mysqli_query($con, $get_cakes);
+                                    if (!$run_cakes) {
+                                    printf("Error inner: %s\n", mysqli_error($con));
+                                
+                                }
+                            
+                                $row_do=mysqli_fetch_array($run_cakes);
+                            
+
+                                    $cid = $row_do['p_id'];
+                                    $cname = $row_do['p_title'];
+                                    $pdesc = $row_do['p_desc'];
+                                    $pprice = $row_do['p_price'];
+                                    $pimage = $row_do['p_image'];
+
+                                //} 
+                                
+                                
+                                if($cname != ""){
+                                
+                                    echo " <div class='container-fluid'>
+                                    <div class='row'>
+                                        <div class='col-sm-4 '>
+                                            <center><img src='../assets/$pimage' class='product' alt='Your Product' style='width: 80%;height: 80%;margin-top: 5%; margin-bottom: 5%;'></center>
+                                        </div>
+                                        <div class='col-sm-7 cart-details' style='margin-top: 3%;'>
+                                            Black T-Shirt <br> sold by : HYM Fashion
+                                            <br>
+                                            <br>
+                                            <div class='row'>
+                                                <div class='col-sm-3'>
+                                                    Size : 8
+                                                </div>
+                                                <div class='col-sm-4'>
+                                                    Quantity : 1
+                                                </div>
+                
+                                            </div>
+                                            <div class='row '>
+                                                <div class='col-sm-3 '>
+                                                    ₹ $pprice
+                                                </div>
+                                                <div class='col-sm-4 '>
+                                                    50% off
+                                                </div>
+                
+                                            </div>
+                                            <br>
+                                            <div class='row '>
+                                                <div class='col-sm-3'>
+                                                    <form method='post'>
+                                                    <button type='submit' class='btn btn-outline-dark' name='rmv' value = $cidcart >Remove</button>
+                                                    </form>
+                                                    </div>
+                                                <div class='col-sm-1'>
+                
+                                                </div>
+                        
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>";
+                            }
+                        } 
+                        } 
+                        
+                    if(isset($_POST['rmv'])){
+                        $con; 
+                        $ee = $_SESSION['email'];
+                        $iid = $_POST['rmv'];
+                        $q1="delete from cart where p_id=$iid && email='$ee' ";
+
+                        $r = mysqli_query($con,$q1);
+
+                        if($r){
+                            echo "<script> window.location.assign('cart.php')</script>";
+                        }
+                    
+
+                        }
+                    }
+                    else{
+                        echo "<script> alert('Please Login')</script> ";
+                        echo "<script> window.location.assign('signup.php')</script>";
+                    }
+
+
+                            ?>
+                            
+
+        
+      
+                </section>
             </div>
-            <div class="col-sm-3 bill ">
-                <div class="container">
+            <!-- <div class="col-sm-3 bill">
+                <div class='container'>
                     <br>
                     <p>Price Details</p>
 
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class='row'>
+                        <div class='col-sm-6'>
                             Total MRP
 
                         </div>
-                        <div class="col-sm-6">
+                        <div class='col-sm-6'>
                             ₹ 600
 
                         </div>
 
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class='row'>
+                        <div class='col-sm-6'>
                             Tax
                         </div>
-                        <div class="col-sm-6">
+                        <div class='col-sm-6'>
                             ₹ 38
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class='row'>
+                        <div class='col-sm-6'>
                             Delivery Charges
                         </div>
-                        <div class="col-sm-6">
+                        <div class='col-sm-6'>
                             ₹ 100
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class='row'>
+                        <div class='col-sm-6'>
                             <b>TOTAL</b>
                         </div>
-                        <div class="col-sm-6">
+                        <div class='col-sm-6'>
                             ₹ 738
                         </div>
                     </div>
@@ -175,17 +308,18 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
                 </div>
-            </div>
+            </div> -->
         </div>
         <br>
-        <div class="row">
-            <div class="col-sm-4">
-                <button type="button" class="btn btn-outline-dark" style="width: 100%;"> <img src="../assets/wishlist.png" alt="Wishlist" style="margin-right: 4%;">     Proceed To Checkout  <img src="../assets/right_arrow.png" style="margin-left: 4%;" alt=""></button>
+        <div class='row'>
+            <div class='col-sm-4'>
+                <form method="POST" action='pay.php'>
+                <button type='sumbit'  class='btn btn-outline-dark' style='width: 100%;'>      Proceed To Checkout  <img src='../assets/right_arrow.png' style='margin-left: 4%;' alt=''></button>
+                </form>
             </div>
-            <div class="col-sm-1">
+            <div class='col-sm-1'>
             </div>
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-outline-dark " style="height: 100%;">Add More...</button>
+            <div class='col-sm-3'>
             </div>
 
         </div>
@@ -201,38 +335,38 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
    
 
     <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+    <footer class='page-footer font-small blue pt-4'>
 
         <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-left">
+        <div class='container-fluid text-center text-md-left'>
 
             <!-- Grid row -->
-            <div class="row">
+            <div class='row'>
 
                 <!-- Grid column -->
-                <div class="col-md-6 mt-md-0 mt-3">
+                <div class='col-md-6 mt-md-0 mt-3'>
 
                     <!-- Content -->
 
-                    <p><img src="../assets/logo.svg" alt="HYM"></p>
+                    <p><img src='../assets/logo.svg' alt='HYM'></p>
 
                 </div>
                 <!-- Grid column -->
 
-                <hr class="clearfix w-100 d-md-none pb-3">
+                <hr class='clearfix w-100 d-md-none pb-3'>
 
                 <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class='col-md-3 mb-md-0 mb-3'>
 
                     <!-- Links -->
 
 
-                    <ul class="list-unstyled">
+                    <ul class='list-unstyled'>
                         <li>
-                            <a href="#!">Men</a>
+                            <a href='#!'>Men</a>
                         </li>
                         <li>
-                            <a href="#!">Women</a>
+                            <a href='#!'>Women</a>
                         </li>
 
                     </ul>
@@ -241,15 +375,12 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class='col-md-3 mb-md-0 mb-3'>
 
                     <!-- Links -->
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
                         <li>
                             <a href="#!">Sign In</a>
                         </li>

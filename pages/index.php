@@ -11,6 +11,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/pages/index.css">
+
     <title>HYM</title>
 </head>
 
@@ -31,13 +32,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Wishlist</a>
+                    <a class="nav-link" href="aboutus.php">About Us</a>
                 </li>
                 <li class="nav-item">
                 <?php
                             global $con;
 
-                    
                             if(!isset($_SESSION['email']))
                             
                             {
@@ -61,7 +61,15 @@
                     <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                <form method="get">
+                            <input type="text" placeholder="Search.." name="user_query" style="margin-top: 8px;
+                            margin-right: 16px;
+                            font-size: 17px;">
+                           <input type="submit" style="margin-top: 8px;
+                           margin-right: 16px; float: right;" name="search" value="Search" />
+                        </form> 
+                        
+                
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
@@ -70,6 +78,115 @@
             </ul>
         </div>
     </nav>
+
+    <?php
+                        $con = mysqli_connect('localhost:3306','root','','test');
+                        global $con;
+
+                            if(isset($_GET['search'])){
+
+                                $search_query = $_GET['user_query'];
+
+
+                                //$get_pro = "select m.p_id, m.p_title, m.p_price, m.p_image,w.p_id, w.p_title, w.p_price, w.p_image from product_men as m , product_women as w where p_keyword like '%$search_query%'";
+                                $get_pro = "select * from product_men where p_keyword like '%$search_query%' union all select * from product_women where p_keyword like '%$search_query%'";
+                                $run_pro = mysqli_query($con, $get_pro);
+                                $rowcount = 0;
+
+                                while( $row_pro=mysqli_fetch_array($run_pro)){
+                    
+                                    $pro_id = $row_pro['p_id'];
+                                    $pro_title = $row_pro['p_title'];
+                                    $pro_price = $row_pro['p_price'];
+                                    $pro_image = $row_pro['p_image'];
+                                    
+                                    echo "
+                                        <style>
+                                        .one, .two, #carousel-example-1z
+                                        {   
+                                            display: none;
+                                        }
+                                        .row {
+                                            display: -ms-flexbox; /* IE10 */
+                                            display: flex;
+                                            -ms-flex-wrap: wrap; /* IE10 */
+                                            flex-wrap: wrap;
+                                            padding: 0 4px;
+                                          }
+                                          
+                                          /* Create four equal columns that sits next to each other */
+                                          .column {
+                                            -ms-flex: 33%; /* IE10 */
+                                            flex: 33%;
+                                            max-width: 33%;
+                                            padding: 0 4px;
+                                          }
+                                          
+                                          .column img {
+                                            margin-top: 8px;
+                                            vertical-align: middle;
+                                            width: 50% !important;
+                                          }
+                                          
+                                          /* Responsive layout - makes a two column-layout instead of four columns */
+                                          @media screen and (max-width: 800px) {
+                                            .column {
+                                              -ms-flex: 50%;
+                                              flex: 50%;
+                                              max-width: 50%;
+                                            }
+                                          }
+                                          
+                                          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+                                          @media screen and (max-width: 600px) {
+                                            .column {
+                                              -ms-flex: 100%;
+                                              flex: 100%;
+                                              max-width: 100%;
+                                            }
+                                          }
+                                        
+                                        
+                                        </style>
+                                        
+                                     
+
+                                ";
+                                if ($rowcount == 0) {
+                                    echo "<div class='row' style='background:#FFFDF5;'>";
+                                }
+                                echo "
+                                
+                                        <div class='column' >
+                                        <br>
+                                         <div><center>
+                                    <center><h5><b>$pro_title</b></h5></center>
+                                    <p><center><img src='../assets/$pro_image' /></center></p>
+                                    <p><center><b>PRICE: INR $pro_price</b></center></p>
+                                    <center><form method='POST'><button type='submit' style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                               background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                               background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                               background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                               width: 182px;
+                               padding: 0px;
+                               ' name='add_cart' value='$pro_id' >+Cart</button></form></center><br><br>
+                            </div></center>
+                             </div>";
+                                $rowcount++;
+                                if ($rowcount == 3) {
+                                    echo "</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    ";
+                                    $rowcount = 0;
+                                }
+                                }
+                                
+                            }
+                ?>
+                </div>
 
     <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel" data-interval=2500>
@@ -115,41 +232,41 @@
 
     <!--/.Carousel Wrapper-->
 
-    <div style="background: rgb(213, 246, 248);">
+    <div class="one" style="background: rgb(213, 246, 248);">
         <br>
         <div class="container-fluid">
 
             <div class="container">
                 <div class="container-fluid">
                     <center>
-                        <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/clock.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> DEALS OF THE DAY ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
+                        <h3 style="font-family: Cinzel;color: #44004A; "><img src="../assets/clock.png" style="margin-top: -0.7%;margin-right: 0.5%" alt=""> DIWALI DHAMAKA DEALS ! <a href="#" style="float: right; font-size: 14px;margin-top: 0.5%;font-family:sans-serif ; text-decoration: none;color: #002366;">View
                                 More
                                 >></a></h3>
                     </center>
                     <br>
                     <div class="row">
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_1.jpg" style="width:100%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD1.jpg" style="width:100%;" alt="img1"></a>
 
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_2.jpg" style="width:100%" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_3.jpg" style="width:100%;height: 25%;" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_4.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD2.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD3.jpg" style="width:100%; height: 25%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD4.jpg" style="width:100%" alt="img1"></a>
 
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_5.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD5.jpg" style="width:100%" alt="img1"></a>
 
-                            <a href=""><img src="../assets/DOD_6.jpg" style="width:100%;height: 25%;" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_7.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD6.jpg" style="width:100%;height: 25%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD7.jpg" style="width:100%" alt="img1"></a>
 
                         </div>
                         <div class="column">
-                            <a href=""><img src="../assets/DOD_8.jpg" style="width:100%" alt="img1"></a>
-                            <a href=""><img src="../assets/DOD_9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD8.jpg" style="width:100%" alt="img1"></a>
+                            <a href=""><img src="../assets/DOD9.jpg" style="width:100%;height: 34%;" alt="img1"></a>
 
                         </div>
                     </div>
@@ -157,7 +274,7 @@
             </div>
         </div>
     </div>
-    <div style="background: rgb(255, 250, 238);">
+    <div class="two" style="background: rgb(255, 250, 238);">
         <br>
         <div class="container-fluid">
             <div class="container">
@@ -243,9 +360,7 @@
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
+
                         <li>
                             <a href="signup.php">Sign In</a>
                         </li>
@@ -272,6 +387,54 @@
 
     </footer>
     <!-- Footer -->
+
+
+    <?php
+    function getIp()
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+
+        return $ip;
+    }
+
+
+
+
+    if (isset($_POST['add_cart'])) {
+        if (isset($_SESSION['email'])) {
+            global $con;
+
+            $ip = getIp();
+
+            $e = $_SESSION['email'];
+            $pro_id = $_POST['add_cart'];
+            $check_pro = "select * from cart where p_id='$pro_id' and email='$e'";
+
+            $run_check = mysqli_query($con, $check_pro);
+
+
+            if (mysqli_num_rows($run_check) > 0) {
+                echo "<script> alert('Item already added in the cart!!!!') </script>";
+            } else {
+
+                $insert_pro = "insert into cart (p_id,email,qty) values ($pro_id,'$e',1)";
+
+                $run_pro = mysqli_query($con, $insert_pro);
+
+                //echo "<script>window.open('cart.php','_self')</script>";
+            }
+        } else {
+            echo "<script> alert('Please Login')</script> ";
+            echo "<script> window.location.assign('signup.php')</script>";
+        }
+    }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -37,7 +37,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Login</title>
     <meta content="">
     <style>
         .body {

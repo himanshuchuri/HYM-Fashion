@@ -29,6 +29,9 @@ if(isset($_POST['create'])){
 	mysqli_query($con,$query);
 	echo "<script> window.location.assign('login.php')</script>";
 	}
+	else{
+		echo "<script> alert('Password not same!!!!!')</script>";
+	}
 }
 }
 ?>
@@ -68,7 +71,7 @@ if(isset($_POST['create'])){
 						<input class="form-control" type="text" id="lnm" placeholder="Last Name" name="lnm" required>
 					</div>
 					<div class="form-group">					
-						<input class="form-control" type="tel" id="phone"  maxlength="10" placeholder="Phone Number" name="phone" required>
+						<input class="form-control" type="tel" id="phone"  maxlength="10" minlength="10" placeholder="Phone Number" name="phone" required>
 					</div>
 					<div class="form-group">
 						<input class="form-control" type="email" maxlength="64" id="email_id" name="eml" placeholder="Email ID" >

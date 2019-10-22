@@ -1,8 +1,7 @@
 <?php
-//include ('functions.php');
+
 session_start();
 $con = mysqli_connect('localhost:3306', 'root', '', 'test');
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,10 +15,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/pages/mens.css">
     <title>Womens</title>
-
-
-
-
 </head>
 
 <body>
@@ -39,7 +34,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Wishlist</a>
+                        <a class="nav-link" href="aboutus.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <?php
@@ -64,7 +59,13 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <a class="nav-link" href="cart.php"><img src="../assets/cart.png" alt=""></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="../assets/search.png" alt=""></a>
+                    <form method="get">
+                            <input type="text" placeholder="Search.." name="user_query" style="margin-top: 8px;
+                            margin-right: 16px;
+                            font-size: 17px;">
+                           <input type="submit" style="margin-top: 8px;
+                           margin-right: 16px; float: right;" name="search" value="Search" />
+                        </form> 
                     </li>
                 </ul>
                 <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
@@ -73,14 +74,122 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                 </ul>
             </div>
         </nav>
+
+        <?php
+                        $con = mysqli_connect('localhost:3306','root','','test');
+                        global $con;
+
+                            if(isset($_GET['search'])){
+
+                                $search_query = $_GET['user_query'];
+
+
+                                //$get_pro = "select m.p_id, m.p_title, m.p_price, m.p_image,w.p_id, w.p_title, w.p_price, w.p_image from product_men as m , product_women as w where p_keyword like '%$search_query%'";
+                                $get_pro = "select * from product_men where p_keyword like '%$search_query%' union all select * from product_women where p_keyword like '%$search_query%'";
+                                $run_pro = mysqli_query($con, $get_pro);
+                                $rowcount = 0;
+
+                                while( $row_pro=mysqli_fetch_array($run_pro)){
+                    
+                                    $pro_id = $row_pro['p_id'];
+                                    $pro_title = $row_pro['p_title'];
+                                    $pro_price = $row_pro['p_price'];
+                                    $pro_image = $row_pro['p_image'];
+                                    
+                                    echo "
+                                        <style>
+                                        .col-md-3, .col-md-9
+                                        {   
+                                            display: none;
+                                        }
+                                        .row {
+                                            display: -ms-flexbox; /* IE10 */
+                                            display: flex;
+                                            -ms-flex-wrap: wrap; /* IE10 */
+                                            flex-wrap: wrap;
+                                            padding: 0 4px;
+                                          }
+                                          
+                                          /* Create four equal columns that sits next to each other */
+                                          .column {
+                                            -ms-flex: 33%; /* IE10 */
+                                            flex: 33%;
+                                            max-width: 33%;
+                                            padding: 0 4px;
+                                          }
+                                          
+                                          .column img {
+                                            margin-top: 8px;
+                                            vertical-align: middle;
+                                            width: 50% !important;
+                                          }
+                                          
+                                          /* Responsive layout - makes a two column-layout instead of four columns */
+                                          @media screen and (max-width: 800px) {
+                                            .column {
+                                              -ms-flex: 50%;
+                                              flex: 50%;
+                                              max-width: 50%;
+                                            }
+                                          }
+                                          
+                                          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+                                          @media screen and (max-width: 600px) {
+                                            .column {
+                                              -ms-flex: 100%;
+                                              flex: 100%;
+                                              max-width: 100%;
+                                            }
+                                          }
+                                        
+                                        
+                                        </style>
+                                        
+                                     
+
+                                ";
+                                if ($rowcount == 0) {
+                                    echo "<div class='row' style='background:#FFFDF5;'>";
+                                }
+                                echo "
+                                
+                                        <div class='column' >
+                                        <br>
+                                         <div><center>
+                                    <center><h5><b>$pro_title</b></h5></center>
+                                    <p><center><img src='../assets/$pro_image' /></center></p>
+                                    <p><center><b>PRICE: INR $pro_price</b></center></p>
+                                    <center><form method='POST'><button type='submit' style='float:center; padding-top:10px;  border: 1px solid #FB8F3D; 
+                               background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+                               background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+                               background: -ms-linear-gradient(top, #FDA251, #FB8F3D);height:30px;
+                               width: 182px;
+                               padding: 0px;
+                               ' name='add_cart' value='$pro_id' >+Cart</button></form></center><br><br>
+                            </div></center>
+                             </div>";
+                                $rowcount++;
+                                if ($rowcount == 3) {
+                                    echo "</div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    ";
+                                    $rowcount = 0;
+                                }
+                                }
+                                
+                            }
+                ?>
+                </div>
+
         <div class="row">
             <div class="col-md-3" style="background-color:rgb(236, 236, 251) ;">
                 <br>
-
                 <center>
                     <h3><b>Our Product Suppliers</b></h3>
                 </center>
-
                 <br>
                 <center><img src="../assets/zara.png" alt="img1" style="width: 50%;"></center>
                 <br>
@@ -201,10 +310,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <li>
                             <a href="#!">Women</a>
                         </li>
-                        <li>
-                            <a href="#!">Kids</a>
-                        </li>
-
+                       
                     </ul>
 
                 </div>
@@ -217,9 +323,7 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
 
 
                     <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Wishlist</a>
-                        </li>
+
                         <li>
                             <a href="#!">Sign In</a>
                         </li>
