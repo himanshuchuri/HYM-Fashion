@@ -315,9 +315,6 @@ $con = mysqli_connect('localhost:3306', 'root', '', 'test');
                         <li>
                             <a href="#!">Women</a>
                         </li>
-                        <li>
-                            <a href="#!">Kids</a>
-                        </li>
 
                     </ul>
 
